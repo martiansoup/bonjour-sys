@@ -4,6 +4,10 @@ use std::env;
 use std::path::PathBuf;
 
 fn main() {
+    if cfg!(target_os = "linux") {
+        println!("cargo:rustc-link-lib=dns_sd");
+    }
+
     bindgen::Builder::default()
         .header("wrapper.h")
         .ctypes_prefix("::libc")

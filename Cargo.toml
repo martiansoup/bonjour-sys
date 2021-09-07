@@ -12,6 +12,9 @@ keywords = ["bonjour", "zeroconf", "mdns", "avahi", "dnssd"]
 categories = ["api-bindings", "external-ffi-bindings", "network-programming", "os", "os::macos-apis"]
 build = "build.rs"
 
+[package.'cfg(target_os = "linux")']
+links = "dns_sd"
+
 [build-dependencies]
 bindgen = "0.55.1"
 
